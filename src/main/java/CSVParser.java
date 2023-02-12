@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class CSVParser {
     private final String csvPath = "src/main/resources/airports.csv";
@@ -49,7 +50,7 @@ public class CSVParser {
         public void getCertainLines(ArrayList<Airport> searchResult) {
         openFile();
         String line;
-        searchResult.sort(((o1, o2) -> Integer.compare(o1.getLineNumber(), o2.getLineNumber())));
+        searchResult.sort((Comparator.comparingInt(Airport::getLineNumber)));
 
         try {
             for (int i = 0, j = 0; j < searchResult.size(); i++) {
@@ -63,7 +64,7 @@ public class CSVParser {
             e.printStackTrace();
         }
 
-        searchResult.sort((o1, o2) -> o1.getParameter().compareTo(o2.getParameter()));
+        searchResult.sort(Comparator.comparing(Airport::getParameter));
 
         closeFile();
     }

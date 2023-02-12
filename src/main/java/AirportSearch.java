@@ -5,7 +5,7 @@ public class AirportSearch {
         if (args.length == 0) {
             throw new Error("No parameters! Enter an integer between 1 and 14");
         }
-        int column = 1;
+        int column;
         try {
             column = Integer.parseInt(args[0]) - 1;
         } catch (Exception e) {
@@ -14,14 +14,13 @@ public class AirportSearch {
         if (column > 15 || column < 0) {
             throw new Error("This value is out of bounds, enter an integer between 1 and 14");
         }
-        ArrayList<Airport> airports = new ArrayList<>();
+        ArrayList<Airport> airports;
         CSVParser parser = new CSVParser();
         airports = parser.getData(column);
-        airports.sort((o1, o2) -> o1.getParameter().compareTo(o2.getParameter()));
+        airports.sort(Comparator.comparing(Airport::getParameter));
         String filter = "";
         ArrayList<Airport> searchResult = new ArrayList<>();
-        int pointer = 0;
-        int mid = 0;
+        int pointer;
         while (!filter.equals("!quit")) {
             System.out.print("¬ведите строку: ");
             filter = getFilter().toLowerCase(Locale.ROOT);
