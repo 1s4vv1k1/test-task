@@ -5,7 +5,7 @@ public class AirportSearch {
         if (args.length == 0) {
             throw new Error("No parameters! Enter an integer between 1 and 14");
         }
-        int column = 0;
+        int column = 1;
         try {
             column = Integer.parseInt(args[0]) - 1;
         } catch (Exception e) {
@@ -23,6 +23,7 @@ public class AirportSearch {
         int pointer = 0;
         int mid = 0;
         while (!filter.equals("!quit")) {
+            System.out.print("¬ведите строку: ");
             filter = getFilter().toLowerCase(Locale.ROOT);
             long time = System.currentTimeMillis();
             pointer = binarySearch(airports, filter);
@@ -43,7 +44,6 @@ public class AirportSearch {
             }
 
             System.out.println("Time spent: " + (System.currentTimeMillis() - time) + " ml" + "  Results: " + searchResult.size());
-            airports.clear();
             searchResult.clear();
         }
     }
