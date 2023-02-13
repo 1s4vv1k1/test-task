@@ -21,9 +21,11 @@ public class AirportSearch {
         String filter = "";
         ArrayList<Airport> searchResult = new ArrayList<>();
         int pointer;
-        while (!filter.equals("!quit")) {
+        while (true) {
             System.out.print("¬ведите строку: ");
             filter = getFilter().toLowerCase(Locale.ROOT);
+            if (filter.equals("!quit"))
+                break;
             long time = System.currentTimeMillis();
             pointer = binarySearch(airports, filter);
             if(pointer < 0) {

@@ -50,13 +50,17 @@ public class CSVParser {
         public void getCertainLines(ArrayList<Airport> searchResult) {
         openFile();
         String line;
+        StringBuilder stringBuilder;
         searchResult.sort((Comparator.comparingInt(Airport::getLineNumber)));
 
         try {
             for (int i = 0, j = 0; j < searchResult.size(); i++) {
                 line = br.readLine();
                 if (searchResult.get(j).getLineNumber() == i) {
-                    searchResult.get(j).setWholeLine("[" + line + "]");
+                    stringBuilder = new StringBuilder("[");
+                    stringBuilder.append(line);
+                    stringBuilder.append("]");
+                    searchResult.get(j).setWholeLine(stringBuilder.toString());
                     j++;
                 }
             }

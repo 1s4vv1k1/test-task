@@ -18,6 +18,8 @@ public class Airport {
     }
     @Override
     public String toString() {
-        return parameter + wholeLine;
+        StringBuilder stringBuilder = new StringBuilder(parameter);
+        stringBuilder.append(wholeLine);
+        return stringBuilder.toString();
     }
 }
