@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 public class CSVParser {
-    private final String csvPath = "src/main/resources/airports.csv";
     private BufferedReader br;
 
     private void openFile() {
         try {
+            String csvPath = "src/main/resources/airports.csv";
             br = new BufferedReader(new FileReader(csvPath));
         } catch (IOException e) {
             e.printStackTrace();
