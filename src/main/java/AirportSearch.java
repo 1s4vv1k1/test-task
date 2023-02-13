@@ -22,7 +22,7 @@ public class AirportSearch {
         ArrayList<Airport> searchResult = new ArrayList<>();
         int pointer;
         while (!filter.equals("!quit")) {
-            System.out.print("Введите строку: ");
+            System.out.print("Р’РІРµРґРёС‚Рµ СЃС‚СЂРѕРєСѓ: ");
             filter = getFilter().toLowerCase(Locale.ROOT);
             long time = System.currentTimeMillis();
             pointer = binarySearch(airports, filter);
