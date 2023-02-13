@@ -18,11 +18,11 @@ public class AirportSearch {
         CSVParser parser = new CSVParser();
         airports = parser.getData(column);
         airports.sort(Comparator.comparing(Airport::getParameter));
-        String filter = "";
+        String filter;
         ArrayList<Airport> searchResult = new ArrayList<>();
         int pointer;
         while (true) {
-            System.out.print("Введите строку: ");
+            System.out.print("Р’РІРµРґРёС‚Рµ СЃС‚СЂРѕРєСѓ: ");
             filter = getFilter().toLowerCase(Locale.ROOT);
             if (filter.equals("!quit"))
                 break;
