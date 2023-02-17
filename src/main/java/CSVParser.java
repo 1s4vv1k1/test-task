@@ -47,7 +47,7 @@ public class CSVParser {
         return airports;
     }
 
-        public void getCertainLines(ArrayList<Airport> searchResult) {
+    public void getCertainLines(ArrayList<Airport> searchResult) {
         openFile();
         String line;
         StringBuilder stringBuilder;
